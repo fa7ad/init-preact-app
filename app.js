@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
-const { cyan, red } = require('chalk')
 const program = require('commander')
-
-const logErr = (...args) => console.error(red(...args))
-const logBlu = (...args) => console.log(cyan(...args))
-const space = (num) => ' '.repeat(num)
+const { cyan, red } = require('chalk')
 
 let cwd
+const space = (num) => ' '.repeat(num)
+const logBlu = (...args) => console.log(cyan(...args))
+const logErr = (...args) => console.error(red(...args))
 
 program
   .version(require('./package.json').version)
@@ -20,6 +19,5 @@ program
 if (typeof cwd === 'undefined') {
   logErr(space(1), 'No target directory given!')
   program.help()
-  process.exit(1)
 }
 
