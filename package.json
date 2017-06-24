@@ -7,6 +7,9 @@
   "scripts": {
     "test": "standard"
   },
+  "engines": {
+    "node": ">=7.9.x"
+  },
   "description": "Create Preact apps using neutrino",
   "main": "app.js",
   "repository": "git@github.com:fa7ad/neutrino-preact-app.git",

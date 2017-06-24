@@ -1,10 +1,9 @@
 #!/usr/bin/env node
-const pify = require('pify')
-const colors = require('colors')
-const program = require('commander')
 const dns = require('dns')
+const colors = require('colors')
 const cp = require('child_process')
-const startInit = require('./startInit')
+const program = require('commander')
+const initApp = require('./init_app')
 
 colors.setTheme({
   hi: ['yellow', 'italic'],
@@ -71,6 +70,6 @@ if (typeof cwd === 'undefined') {
           '\n'
         )
       }
-      startInit(cwd, opts)
+      initApp(cwd, opts)
     })
 }
