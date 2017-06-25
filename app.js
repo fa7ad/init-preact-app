@@ -20,7 +20,8 @@ function checkIfOffline () {
   })
 }
 
-function choosePackageManager () {
+function choosePackageManager (opts) {
+  if (opts.pm) return new Promise(resolve => resolve(opts.pm))
   return new Promise(resolve => {
     cp.execFile('yarnpkg', ['--version'], err => {
       if (err && err.code === 'ENOENT') resolve('npm')
@@ -33,6 +34,11 @@ console.log('\n', ' '.repeat(14), 'init-preact-app'.rainbow.bold.italic, '\n')
 
 program
   .version(require('./package.json').version)
+  .option(
+    '--pm <npm|yarn>',
+    'Force use a package manager',
+    p => (/npm$|yarn$/.test(p) ? p.replace('yarn', 'yarnpkg') : '')
+  )
   .option('-f, --force', 'Delete target directory if it exists')
   .option('-v, --verbose', 'Increase the verbousity')
   .option('--offline', 'Force run in offline mode')
@@ -49,7 +55,7 @@ if (typeof cwd === 'undefined') {
 } else {
   const opts = Object.assign({}, program.opts())
   console.log('Started with target:'.cyan, `${cwd}`.hi)
-  choosePackageManager()
+  choosePackageManager(opts)
     .then(pm => {
       Object.assign(opts, { pm })
       console.log('Using package manager:'.cyan, pm.hi.bold, '\n')

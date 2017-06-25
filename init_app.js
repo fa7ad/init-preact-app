@@ -48,7 +48,7 @@ module.exports = function (cwd, opts) {
     .then(
       dir =>
         (!dir || cwd === resolve('.')
-          ? glob(join(cwd, '**'))
+          ? glob(join(cwd, '*'))
               .then(d => d.filter(i => !/\.git/.test(i)))
               .then(f => f.length < 1)
           : true)
@@ -112,7 +112,10 @@ module.exports = function (cwd, opts) {
       cwd !== '.' && log('cd'.w, cwd.w)
       log(pm.replace('pkg', '').w, 'start'.italic.w)
       log('')
-      log('Happy coding!'.rainbow.bold, String.fromCodePoint(0x1f60a).rainbow)
+      log('Happy coding!'.rainbow.bold, String.fromCodePoint(0x1f60a))
     })
-    .catch(err => console.error(err.message || err))
+    .catch(err => {
+      console.error(err.message || err)
+      process.exit(1)
+    })
 }
