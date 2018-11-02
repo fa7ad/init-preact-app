@@ -26,7 +26,7 @@
     "pify": "^2.3.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^10.0.0",
     "standard": "^10.0.2"
   },
   "standard": {
