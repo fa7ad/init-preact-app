@@ -22,7 +22,7 @@ colors.setTheme({
 })
 
 const appRoot = __dirname
-const downloadUri = 'http://fahad.gq/preact.zip'
+const tmplUri = 'https://github.com/fa7ad/init-preact-app/raw/master/preact.zip'
 const log = (...text) => {
   const logs = [...text].map(a => colors.green(a))
   console.log(...logs)
@@ -30,7 +30,7 @@ const log = (...text) => {
 
 function extractTemplate (cwd, offline) {
   log('Extracting template into', cwd.w, '\n')
-  if (!offline) return download(downloadUri, cwd, { extract: true })
+  if (!offline) return download(tmplUri, cwd, { extract: true })
   return decompress(join(appRoot, 'preact.zip'), cwd)
 }
 
