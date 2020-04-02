@@ -20,7 +20,7 @@
     "commander": "^4.0.0",
     "decompress": "^4.2.0",
     "del": "^5.0.0",
-    "download": "^7.1.0",
+    "download": "^8.0.0",
     "jsonfile": "^5.0.0",
     "mkdirp": "^0.5.1",
     "pify": "^4.0.1"
