@@ -22,7 +22,7 @@
     "del": "^5.0.0",
     "download": "^8.0.0",
     "jsonfile": "^5.0.0",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^1.0.4",
     "pify": "^4.0.1"
   },
   "devDependencies": {
